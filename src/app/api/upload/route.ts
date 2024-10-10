@@ -1,6 +1,6 @@
 import {PutObjectCommand, S3Client} from "@aws-sdk/client-s3";
 import {NextRequest} from "next/server";
-import uniqid from 'uniqid';
+import { v4 as uuidv4 } from 'uuid';
 
 export async function POST(req: NextRequest) {
   const data = await req.formData();
@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
 
 
   //name 345234523-test.jpg
-  const newFilename = `${uniqid()}-${file.name}`;
+  const newFilename = `${uuidv4()}-${file.name}`;
 
   // blob data of our file
   const chunks = [];
