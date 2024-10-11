@@ -2,6 +2,7 @@ import {getSignInUrl, getUser, signOut} from "@workos-inc/authkit-nextjs";
 import Link from "next/link";
 
 export default async function Header() {
+  
   const { user } = await getUser();
   const signInUrl = await getSignInUrl();
   
